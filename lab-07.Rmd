@@ -26,10 +26,26 @@ glimpse(college_grad_df)
 # Exercise 1: Exploratory Data Analysis
 
 ```{r}
-#your code here
+college_data_histogram <- college_grad_df %>%
+  group_by(major_category) %>%
+  summarise(median_earnings = median(median))
+
+ggplot(data = college_data_histogram, mapping =
+         aes(
+          x = median_earnings,
+          fill = major_category
+         )) +
+  geom_histogram(binwidth = 2500) +
+  labs(
+    x = "Median Earnings (£)",
+    title = "Median earnings based on major category"
+  ) +
+  theme_minimal()
+
+
 ```
 
-*Your explanation*
+There is a lot of major categories at the lower end of the earnings scale and then theirs a big gap to engineering which is just below £60000.
 
 
 # Exercise 2: Exploring relationship

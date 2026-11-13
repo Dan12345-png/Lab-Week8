@@ -50,11 +50,25 @@ There is a lot of major categories at the lower end of the earnings scale and th
 
 # Exercise 2: Exploring relationship
 
+a. Median Earnings is the response variable whereas share of woman is the explanatory variable.
+
 ```{r}
-#your code here
+ggplot(data = college_grad_df, mapping =
+         aes(
+           x = sharewomen,
+           y = median
+         )) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE) +
+  labs(
+    x = "Share of women in major",
+    y = "Median earnings",
+    title = "How does share of women in a major effect median earnings?"
+  ) +
+  theme_minimal()
 ```
 
-*Your explanation*
+This data visualisation is a scatterplot which proves the statement to be correct as when the share of woman increases the median earnings decrease.
 
 # Exercise 3: Fit and interpret a numerical predictor
 
